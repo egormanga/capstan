@@ -297,7 +297,9 @@ func (c *VMConfig) vmArguments(version *Version) ([]string, error) {
 	args := make([]string, 0)
 	args = append(args, "-vnc", "unix:"+c.VNCFile)
 	args = append(args, "-m", strconv.FormatInt(c.Memory, 10))
-	args = append(args, "-smp", strconv.Itoa(c.Cpus))
+	if c.Cpus > 0 {
+		args = append(args, "-smp", strconv.Itoa(c.Cpus))
+	}
 	if c.KernelMode {
 		args = append(args, "-device", "virtio-blk-pci,id=blk0,drive=hd0")
 	} else {

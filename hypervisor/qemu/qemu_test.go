@@ -54,7 +54,6 @@ func (s *suite) TestVmArguments(c *C) {
 			[]string{
 				"-vnc", "unix:",
 				"-m", "0",
-				"-smp", "0",
 				"-device", "virtio-blk-pci,id=blk0,bootindex=0,drive=hd0",
 				"-drive", "file=,if=none,id=hd0,aio=threads,cache=unsafe",
 				"-device", "virtio-rng-pci",
